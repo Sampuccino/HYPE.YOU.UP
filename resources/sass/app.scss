@@ -1,1 +1,24 @@
-//
+// Fonts
+@import url('https://fonts.googleapis.com/css2?family=Jost:wght@300;400;500;700&display=swap');
+
+// Variables
+@import 'variables';
+
+// Bootstrap
+@import '~bootstrap/scss/bootstrap';
+
+.navbar-logo {
+    clip-path: circle();
+}
+
+.text-velvet {
+    color: $velvet;
+}
+
+.h-90 {
+    height: 90% !important;
+}
+
+.negative-mt-5{
+    margin-top: -20rem;
+}
