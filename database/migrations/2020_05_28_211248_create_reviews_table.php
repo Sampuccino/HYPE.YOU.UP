@@ -28,11 +28,11 @@ class CreateReviewsTable extends Migration
           $table->integer('q8');
           $table->integer('q9');
           $table->integer('q10');
-          $table->text('pros');
-          $table->text('cons');
-          $table->text('snapchat_url');
-          $table->text('facebook_url');
-          $table->text('instagram_url');
+          $table->text('pros')->nullable();
+          $table->text('cons')->nullable();
+          $table->text('snapchat_url')->nullable();
+          $table->text('facebook_url')->nullable();
+          $table->text('instagram_url')->nullable();
       });
 
       // Relationship
