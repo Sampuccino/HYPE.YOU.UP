@@ -21,7 +21,7 @@ class CreateCommentsTable extends Migration
             $table->text('image');
             $table->text('body');
             $table->double('rating'); // Used for aggregating total rating score
-            $table->string('recommend'); // Used for % score on Profile
+            $table->boolean('recommend'); // Used for % score on Profile
         });
 
       // Relationship
