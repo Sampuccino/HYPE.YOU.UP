@@ -53,7 +53,7 @@
               <a class="nav-link" href="#">New Review <span class="sr-only">(current)</span></a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="#">All Review</a>
+              <a class="nav-link" href="{{ route('reviews.index') }}">All Review</a>
             </li>
           </ul>
         </div>

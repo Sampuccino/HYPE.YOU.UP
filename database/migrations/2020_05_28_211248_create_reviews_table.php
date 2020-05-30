@@ -18,6 +18,7 @@ class CreateReviewsTable extends Migration
           $table->timestamps();
           $table->unsignedInteger('reviewee_id');
           $table->integer('pt_score'); // PT-Score is the personality type score on a given personality type. +/- 5 based @ Personality Chosen for Reviewee
+          $table->string('personality', '25');
           $table->integer('q1');
           $table->integer('q2');
           $table->integer('q3');
@@ -33,6 +34,7 @@ class CreateReviewsTable extends Migration
           $table->text('snapchat_url')->nullable();
           $table->text('facebook_url')->nullable();
           $table->text('instagram_url')->nullable();
+          $table->boolean('recommend'); // Used for % score on Profile
       });
 
       // Relationship

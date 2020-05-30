@@ -35,9 +35,11 @@ class DatabaseSeeder extends Seeder
         $randomReviewsNumber = random_int(5,10);
         $randomCommentsNumber = random_int(3,10);
         for ($b = 0; $b < $randomReviewsNumber; $b++) {
+          $types = ['Agreeable', 'Nueroticism', 'Extroversion', 'Openness', 'Conscientiousness'];
           $review = Review::create([
                             'reviewee_id' => $reviewee->id,
                             'pt_score' => random_int(1,5),
+                            'personality' => $types[random_int(0,4)],
                             'q1' => random_int(1,5),
                             'q2' => random_int(1,5),
                             'q3' => random_int(1,5),
@@ -53,16 +55,16 @@ class DatabaseSeeder extends Seeder
                             'snapchat_url' => 'www.snapchat.com',
                             'facebook_url' => 'www.facebook.com',
                             'instagram_url' => 'www.instagram.com',
+                            'recommend' => random_int(0,1),
                           ]);
 
           for ($c = 0; $c < $randomCommentsNumber; $c++) {
             Comment::create([
               'review_id' => $review->id,
               'name' => $faker->firstName,
-              'image' => $faker->imageUrl(640, 480, 'transport'),
+              'image' => $faker->imageUrl(440, 280, 'transport'),
               'body' => $faker->paragraph,
-              'rating' => $faker->randomFloat(1,1,5),
-              'recommend' => random_int(0,1),
+              'rating' => $faker->randomFloat(1,1,5)
             ]);
           }
 
