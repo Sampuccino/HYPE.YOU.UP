@@ -13,6 +13,10 @@ class Reviewee extends Model
      return $this->hasMany(Review::class)->select(['id','reviewee_id','pt_score', 'recommend', 'personality']);
   }
 
+  public function allReviewsWithComments() {
+    return $this->hasMany(Review::class, 'reviewee_id');
+  }
+
   public function latestReview(){
     return $this->hasOne(Review::class)->select('id','reviewee_id')->latest('id');
   }

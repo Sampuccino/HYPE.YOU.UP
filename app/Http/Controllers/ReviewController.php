@@ -31,8 +31,7 @@ class ReviewController extends Controller
     // Returns the Reviewee's with all their reviews and no comments.
     return response()->json(Reviewee::with([
       'reviewsPtScores',
-      'latestReview.comment' => function ($query) {
-      }])
+      'latestReview.comment'])
       ->get());
   }
 
@@ -65,7 +64,6 @@ class ReviewController extends Controller
    */
   public function show(Review $review)
   {
-    //
   }
 
   /**
