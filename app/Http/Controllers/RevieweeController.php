@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Review;
 use App\Reviewee;
 use Illuminate\Http\Request;
 
@@ -46,8 +47,13 @@ class RevieweeController extends Controller
      */
     public function show(Reviewee $reviewee)
     {
-        //
+      return view('review-detailed', ['reviewee' => $reviewee]);
     }
+
+  public function getReviewsWithComments(Reviewee $reviewee) {
+    $reviewsWithComments = Review::where('reviewee_id', $reviewee->id)->with('comments')->get();
+    return response()->json($reviewsWithComments, 200);
+  }
 
     /**
      * Show the form for editing the specified resource.

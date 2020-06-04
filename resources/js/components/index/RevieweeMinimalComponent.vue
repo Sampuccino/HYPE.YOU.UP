@@ -1,7 +1,7 @@
 <template>
   <div class="container">
     <section class="row text-center">
-      <article v-show="reviewees" v-for="(r, index) in reviewees" :key="index" class="col-6 mb-4">
+      <a v-show="reviewees" v-for="(r, index) in reviewees" :key="index" class="col-6 mb-4 light-hover" :href="'reviewee/'+r.id">
         <div class="p-3 bg-white light-transluscent-border">
           <div class="row">
           <!--<div class="col-6 apply-right-side-divider my-auto">-->
@@ -59,7 +59,7 @@
           </div>
           </div>
         </div>
-      </article>
+      </a>
     </section>
   </div>
 </template>
@@ -140,7 +140,12 @@
   }
 </script>
 
-<style scoped>
+<style lang="scss" scoped>
+  a {
+    text-decoration: none;
+    color: black;
+  }
+
   .light-transluscent-border {
     border: 1px solid rgba(0, 0, 0, 0.15);
   }
@@ -186,6 +191,17 @@
   .bg-red {
     background:  #A91924;
     height: 1rem;
+  }
+
+  .light-hover {
+    cursor: pointer;
+    transition: all ease-out .5s;
+
+    &:hover {
+      transform: scale(1.05);
+      transition: all ease-in-out .5s;
+      z-index: 999;
+    }
   }
 
 </style>

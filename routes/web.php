@@ -17,6 +17,9 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+Route::get('/getReviewsWithComments/{reviewee}', 'RevieweeController@getReviewsWithComments');
+
 Route::resources([
-  'reviews' => 'ReviewController'
+  'reviews' => 'ReviewController',
+  'reviewee' => 'RevieweeController',
 ]);
