@@ -36,7 +36,7 @@
     <div class="collapse navbar-collapse" id="collapsibleNavId">
       <ul class="navbar-nav ml-auto mt-2 mt-lg-0">
         <li class="nav-item">
-          <a class="nav-link" href="#">New Review <span class="sr-only">(current)</span></a>
+          <a class="nav-link" href="{{ route('reviews.create') }}">New Review <span class="sr-only">(current)</span></a>
         </li>
         <li class="nav-item">
           <a class="nav-link" href="{{ route('reviews.index') }}">All Review</a>

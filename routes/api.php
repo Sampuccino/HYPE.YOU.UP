@@ -20,4 +20,5 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 
 Route::prefix('hyu')->group(function () {
   Route::get('review', 'ReviewController@reviews');
+  Route::get('reviewees', 'RevieweeController@index');
 });

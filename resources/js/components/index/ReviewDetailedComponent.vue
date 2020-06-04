@@ -32,7 +32,9 @@
 
         <div class="col-8">
           <section class="bg-white p-4 light-transluscent-border">
-            <h4>{{ reviewee.name }}</h4>
+            <h4>
+              <img :src="reviewee.image" class="circle-img-sm" alt="">
+              {{ reviewee.name }}</h4>
             <hr>
             <article>
               <section>
@@ -76,53 +78,59 @@
 
                 <hr>
 
+                <el-alert
+                  title="1 is Strong Agree, 3 is Neutral and while 5 is Strongly Disagree"
+                  class="mb-2"
+                  type="info">
+                </el-alert>
+
                 <div class="block mb-3">
-                  <span class="demonstration">Question</span>
+                  <span class="demonstration">{{ reviewee.name }} enjoys vibrant social events with lots of people.</span>
                   <el-slider :value="reviews.q1" disabled :min=0 :max=5></el-slider>
                 </div>
 
                 <div class="block mb-3">
-                  <span class="demonstration">Question</span>
+                  <span class="demonstration">{{ reviewee.name }} is a person whom people can rarely upset.</span>
                   <el-slider :value="reviews.q2" disabled :min=0 :max=5></el-slider>
                 </div>
 
                 <div class="block mb-3">
-                  <span class="demonstration">Question</span>
+                  <span class="demonstration">{{ reviewee.name }} is a person who if their friend is sad about something, their first instinct is to support them emotionally, not try to solve their problem.</span>
                   <el-slider :value="reviews.q3" disabled :min=0 :max=5></el-slider>
                 </div>
 
                 <div class="block mb-3">
-                  <span class="demonstration">Question</span>
+                  <span class="demonstration">{{ reviewee.name }} relies on other people to be the ones to start a conversation and keep it going.</span>
                   <el-slider :value="reviews.q4" disabled :min=0 :max=5></el-slider>
                 </div>
 
                 <div class="block mb-3">
-                  <span class="demonstration">Question</span>
+                  <span class="demonstration">{{ reviewee.name }} is rarely worried if they made a good impression on individuals they just met.</span>
                   <el-slider :value="reviews.q5" disabled :min=0 :max=5></el-slider>
                 </div>
 
                 <div class="block mb-3">
-                  <span class="demonstration">Question</span>
+                  <span class="demonstration">{{ reviewee.name }} often finds it difficult to relate to people who let their emotions guide them.</span>
                   <el-slider :value="reviews.q6" disabled :min=0 :max=5></el-slider>
                 </div>
 
                 <div class="block mb-3">
-                  <span class="demonstration">Question</span>
+                  <span class="demonstration">{{ reviewee.name }} can stay calm under a lot of pressure.</span>
                   <el-slider :value="reviews.q7" disabled :min=0 :max=5></el-slider>
                 </div>
 
                 <div class="block mb-3">
-                  <span class="demonstration">Question</span>
+                  <span class="demonstration">{{ reviewee.name }} feels it is OK to step on others to get ahead in life.</span>
                   <el-slider :value="reviews.q8" disabled :min=0 :max=5></el-slider>
                 </div>
 
                 <div class="block mb-3">
-                  <span class="demonstration">Question</span>
+                  <span class="demonstration">{{ reviewee.name }} is a person that when it comes to making life-changing choices, they mostly listen to their heart rather than their own head.</span>
                   <el-slider :value="reviews.q9" disabled :min=0 :max=5></el-slider>
                 </div>
 
                 <div class="block mb-3">
-                  <span class="demonstration">Question</span>
+                  <span class="demonstration">{{ reviewee.name }} usually prefers to get their revenge rather than forgive.</span>
                   <el-slider :value="reviews.q10" disabled :min=0 :max=5></el-slider>
                 </div>
 
@@ -204,16 +212,4 @@
     width: 2rem;
     height: 2rem;
   }
-
-  .el-slider__runway.disabled .el-slider__bar {
-    background-color: #409EFF !important;
-  }
-  .el-slider__bar {
-    height: 6px;
-    background-color: #409EFF !important;
-    border-top-left-radius: 3px;
-    border-bottom-left-radius: 3px;
-    position: absolute;
-  }
-
 </style>

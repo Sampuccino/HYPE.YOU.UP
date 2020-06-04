@@ -15,7 +15,7 @@ class RevieweeController extends Controller
      */
     public function index()
     {
-        //
+        return response()->json(Reviewee::all());
     }
 
     /**
