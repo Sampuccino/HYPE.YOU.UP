@@ -7,6 +7,8 @@ use Illuminate\Database\Eloquent\Model;
 class Reviewee extends Model
 {
 
+  protected $fillable = ['name', 'description', 'image', 'rating'];
+
   /****/
   public function reviewsPtScores() {
     // Returns reviews with comments only with id, review id and recommend

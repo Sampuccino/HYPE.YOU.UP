@@ -25,7 +25,7 @@
                 <h5>{{ returnAveragedPTScoreAndRecommendation(r.reviews_pt_scores)[2] }}</h5>
                 <div class="row bg-dark p-1">
                   <div v-show="returnAveragedPTScoreAndRecommendation(r.reviews_pt_scores)[0] <= 1.66" class="col-4 bg-red"></div>
-                  <div v-show="returnAveragedPTScoreAndRecommendation(r.reviews_pt_scores)[0] <= 3.22" class="col-4 offset-4 bg-yellow"></div>
+                  <div v-show="returnAveragedPTScoreAndRecommendation(r.reviews_pt_scores)[0] <= 3.22 && returnAveragedPTScoreAndRecommendation(r.reviews_pt_scores)[0] > 1.66" class="col-4 offset-4 bg-yellow"></div>
                   <div v-show="returnAveragedPTScoreAndRecommendation(r.reviews_pt_scores)[0] >= 3.23" class="col-4 offset-8 bg-green"></div>
                 </div>
               </article>
@@ -36,7 +36,7 @@
                            :options="returnOptions(returnAveragedPTScoreAndRecommendation(r.reviews_pt_scores)[1])"
                            :series="returnSeries(returnAveragedPTScoreAndRecommendation(r.reviews_pt_scores)[1])"/>
               </article>
-              <article>
+              <article v-if="r.latest_review.comment !== null">
                 <h6>
                   <img :src="r.latest_review.comment.image" alt="" class="d-inline mr-2 circle-img-sm img-fluid">
                   {{ r.latest_review.comment.name }}

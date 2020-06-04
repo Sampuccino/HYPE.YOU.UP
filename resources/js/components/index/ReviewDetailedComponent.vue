@@ -8,7 +8,7 @@
         </div>
         <div class="col-3 text-left">
           <section class="bg-white p-4 light-transluscent-border">
-            <article  v-for="(comment) in comments.comments">
+            <article  v-for="(comment) in comments">
               <h6>
                 <img :src="comment.image" alt="" class="d-inline mr-2 circle-img-sm img-fluid">
                 {{ comment.name }}
@@ -166,19 +166,15 @@
       this._reviewee = this.reviewee;
     },
     async mounted() {
-      const {data} = await axios.get('/getReviewsWithComments/1');
+      const {data} = await axios.get(`/getReviewsWithComments/${this._reviewee.id}`);
       this.reviewsWithComments = data;
     },
     methods: {
 
       handleSelect(idx, rID) {
         console.warn('handleSelect ', idx, '   ', rID);
-        this.reviews = this.reviewsWithComments.find(el => {
-          return el.id === (idx+1)
-        });
-        this.comments = this.reviewsWithComments.find(el => {
-          return el.id === (idx+1)
-        });
+        this.reviews = this.reviewsWithComments[idx];
+        this.comments = this.reviewsWithComments[idx].comments;
       }
     }
   }

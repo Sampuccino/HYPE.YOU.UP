@@ -54,7 +54,55 @@ class ReviewController extends Controller
    */
   public function store(Request $request)
   {
-    //
+    // Check if the review name exists
+    $exists = Reviewee::where('name', '=', $request->reviewee['name'])->first();
+    $reviewee = null;
+
+    if ($exists === null) {
+      // Create 2 records
+      /*
+       * Reviewee
+       * then
+       * Review
+       * */
+
+      $reviewee = Reviewee::create([
+        'name' => $request->reviewee['name'],
+        'image' => $request->reviewee['image'],
+        'rating' => $request->reviewee['rating'],
+        'description' => $request->reviewee['description']
+      ]);
+    } else $reviewee = $exists;
+
+    $review = Review::create([
+      'reviewee_id' => $reviewee->id,
+      'pt_score' => $request->review['pt_score'],
+      'personality' => $request->review['personality'],
+      'q1' => $request->review['q1'],
+      'q2' => $request->review['q2'],
+      'q3' => $request->review['q3'],
+      'q4' => $request->review['q4'],
+      'q5' => $request->review['q5'],
+      'q6' => $request->review['q6'],
+      'q7' => $request->review['q7'],
+      'q8' => $request->review['q8'],
+      'q9' => $request->review['q9'],
+      'q10' => $request->review['q10'],
+      'pros' => $request->review['pros'],
+      'cons' => $request->review['cons'],
+      'snapchat_url' => $request->review['snapchat_url'],
+      'facebook_url' => $request->review['facebook_url'],
+      'instagram_url' => $request->review['instagram_url'],
+      'recommend' => $request->review['recommend'],
+    ]);
+
+    $reviewee->save();
+    $review->save();
+
+    return response()->json(['reviewee' => $reviewee, 'review' => $review]);
+
+    // Name exists
+//    return response()->json(['message' => 'Record taken',  ], 400);
   }
 
   /**
